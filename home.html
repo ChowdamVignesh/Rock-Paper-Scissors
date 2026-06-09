@@ -18,51 +18,58 @@
       }
       div {
         box-sizing: border-box;
+
         text-align: center;
         margin: auto 30px;
         padding: 20px;
+      }
+      section {
+        box-sizing: border-box;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <h1>Welcome to Rock paper Scissors Game</h1>
     <div>
-      <button
-        class="btn"
-        onclick="
-          const name1 = letter();
-          const res1 = result(name1, 'Rock');
-          alert(
-            `You selected Rock and computer selected ${name1} : You ${res1}`,
-          );
-        "
-      >
-        Rock
-      </button>
-      <button
-        class="btn"
-        onclick="
-          const name2 = letter();
-          const res2 = result(name2, 'Paper');
-          alert(
-            `You selected Paper and computer selected ${name2} : You ${res2}`,
-          );
-        "
-      >
-        Paper
-      </button>
-      <button
-        class="btn"
-        onclick="
-          const name3 = letter();
-          const res3 = result(name3, 'Scissors');
-          alert(
-            `You selected Scissors and computer selected ${name3} : You ${res3}`,
-          );
-        "
-      >
-        Scissors
-      </button>
+      <section>
+        <button
+          class="btn"
+          onclick="
+            const name1 = letter();
+            const res1 = result(name1, 'Rock');
+            alert(
+              `You selected Rock and computer selected ${name1} : You ${res1}`,
+            );
+          "
+        >
+          Rock
+        </button>
+        <button
+          class="btn"
+          onclick="
+            const name2 = letter();
+            const res2 = result(name2, 'Paper');
+            alert(
+              `You selected Paper and computer selected ${name2} : You ${res2}`,
+            );
+          "
+        >
+          Paper
+        </button>
+        <button
+          class="btn"
+          onclick="
+            const name3 = letter();
+            const res3 = result(name3, 'Scissors');
+            alert(
+              `You selected Scissors and computer selected ${name3} : You ${res3}`,
+            );
+          "
+        >
+          Scissors
+        </button>
+      </section>
     </div>
     <script>
       function letter() {
