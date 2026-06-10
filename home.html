@@ -5,71 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      h1 {
-        text-align: center;
-        color: black;
-        font-size: large;
-      }
-      .btn {
+      * {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
-        margin: auto 10px;
-        padding: 5px;
-        background-color: aquamarine;
       }
-      div {
-        box-sizing: border-box;
 
-        text-align: center;
-        margin: auto 30px;
-        padding: 20px;
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      section {
-        box-sizing: border-box;
+
+      .game-container {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
         text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 450px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .btn {
+        padding: 15px 20px;
+        border: none;
+        border-radius: 12px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .rock {
+        background-color: #ff6b6b;
+        color: white;
+      }
+
+      .paper {
+        background-color: #4ecdc4;
+        color: white;
+      }
+
+      .scissors {
+        background-color: #f7b731;
+        color: white;
+      }
+
+      .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .reset-btn {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .reset-btn:hover {
+        background: #000;
       }
     </style>
   </head>
   <body>
-    <h1>Welcome to Rock paper Scissors Game</h1>
-    <div>
-      <section>
-        <button
-          class="btn"
-          onclick="
-            let val1 = computerGuess();
-            resulting('Rock', val1);
-          "
-        >
-          Rock
+    <div class="game-container">
+      <h1>🎮 Rock Paper Scissors</h1>
+
+      <div class="buttons">
+        <button class="btn rock" onclick="resulting('Rock')">✊ Rock</button>
+        <button class="btn paper" onclick="resulting('Paper')">✋ Paper</button>
+        <button class="btn scissors" onclick="resulting('Scissors')">
+          ✌️ Scissors
         </button>
-        <button
-          class="btn"
-          onclick="
-            let val2 = computerGuess();
-            resulting('Paper', val2);
-          "
-        >
-          Paper
-        </button>
-        <button
-          class="btn"
-          onclick="
-            let val3 = computerGuess();
-            resulting('Scissors', val3);
-          "
-        >
-          Scissors
-        </button>
-        <button
-          onclick="
-            alert(
-              `win : ${(reSet.win = 0)} loose : ${(reSet.loose = 0)} Tie : ${(reSet.Tie = 0)}`,
-            )
-          "
-        >
-          Reset
-        </button>
-      </section>
+      </div>
+
+      <button
+        class="reset-btn"
+        onclick="
+          alert(
+            `Win: ${(reSet.win = 0)} | Lose: ${(reSet.loose = 0)} | Tie: ${(reSet.Tie = 0)}`,
+          )
+        "
+      >
+        🔄 Reset Score
+      </button>
     </div>
     <script>
       const reSet = {
@@ -90,7 +129,8 @@
         return letter;
       }
 
-      function resulting(name, letter) {
+      function resulting(name) {
+        let letter = computerGuess();
         let result = "";
         if (name === "Rock") {
           if (letter === "Rock") {
